@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import Form from './Form.js';
 
 const App = () => {
   let time = new Date().toLocaleTimeString();
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <>
       <h1 className="timer">{currTime}</h1>
+      <Form />
     </>
   );
 };
