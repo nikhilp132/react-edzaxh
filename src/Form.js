@@ -10,21 +10,24 @@ const Form = () => {
     UpdatedName(currentName);
   };
 
-  const updateValue = () => {
+  const updateValue = (event) => {
+    event.preventDefault();
     fullNewName(currName);
   };
 
   return (
-    <div className="formContent">
-      <h1>Hello {fullName}</h1>
-      <input
-        type="text"
-        placeholder="Enter your name"
-        onChange={getInputValue}
-        value={currName}
-      />
-      <button onClick={updateValue}>Submit</button>
-    </div>
+    <form onSubmit={updateValue}>
+      <div className="formContent">
+        <h1>Hello {fullName}</h1>
+        <input
+          type="text"
+          placeholder="Enter your First name"
+          onChange={getInputValue}
+          value={currName}
+        />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   );
 };
 
