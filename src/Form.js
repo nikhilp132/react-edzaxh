@@ -2,28 +2,39 @@ import React, { useState } from 'react';
 import './style.css';
 
 const Form = () => {
-  const [currName, UpdatedName] = useState('');
-  const [fullName, fullNewName] = useState(currName);
+  const [fName, updatefName] = useState('');
+  const [lName, updatelName] = useState('');
+  const [fullName, updateFullName] = useState('');
 
-  const getInputValue = (event) => {
-    var currentName = event.target.value;
-    UpdatedName(currentName);
+  const getInput1Txt = (event) => {
+    updatefName(event.target.value);
   };
 
-  const updateValue = (event) => {
+  const getInput2Txt = (event) => {
+    updatelName(event.target.value);
+  };
+
+  const getFullName = (event) => {
     event.preventDefault();
-    fullNewName(currName);
+    var fullName = `${fName} ${lName}`;
+    updateFullName(fullName);
   };
 
   return (
-    <form onSubmit={updateValue}>
+    <form onSubmit={getFullName}>
       <div className="formContent">
         <h1>Hello {fullName}</h1>
         <input
           type="text"
           placeholder="Enter your First name"
-          onChange={getInputValue}
-          value={currName}
+          onChange={getInput1Txt}
+          value={fName}
+        />
+        <input
+          type="text"
+          placeholder="Enter your Last name"
+          onChange={getInput2Txt}
+          value={lName}
         />
         <button type="submit">Submit</button>
       </div>
